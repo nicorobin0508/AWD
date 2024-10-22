@@ -1,84 +1,85 @@
 Webform1.aspx
-&lt;%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;WebForm1.aspx.cs&quot;
-Inherits=&quot;WebApplication10.WebForm1&quot; %&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;head runat=&quot;server&quot;&gt;
-&lt;title&gt;Student Information&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
-&lt;div&gt;
-ID: &lt;asp:TextBox ID=&quot;TextBox1&quot; runat=&quot;server&quot;&gt;&lt;/asp:TextBox&gt;&lt;br /&gt;
-Name: &lt;asp:TextBox ID=&quot;TextBox2&quot; runat=&quot;server&quot;&gt;&lt;/asp:TextBox&gt;&lt;br /&gt;
-Class: &lt;asp:TextBox ID=&quot;TextBox3&quot; runat=&quot;server&quot;&gt;&lt;/asp:TextBox&gt;&lt;br /&gt;
-&lt;asp:Button ID=&quot;Button1&quot; runat=&quot;server&quot; Text=&quot;Insert&quot; OnClick=&quot;Button1_Click&quot; /&gt;
-&lt;asp:Button ID=&quot;Button2&quot; runat=&quot;server&quot; Text=&quot;Delete&quot; OnClick=&quot;Button2_Click&quot; /&gt;
-&lt;/div&gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication10.WebForm1" %>
 
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Student Information</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            ID: <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
+            Name: <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
+            Class: <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox><br />
+            <asp:Button ID="Button1" runat="server" Text="Insert" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" Text="Delete" OnClick="Button2_Click" />
+        </div>
+    </form>
+</body>
+</html>
 
 webform1.cs
 using System;
 using System.Data.SqlClient;
 using System.Web.UI;
+
 namespace WebApplication10
 {
-public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // No specific action needed on page load for this form.
+        }
 
-{
-protected void Page_Load(object sender, EventArgs e)
-{
-// No specific action needed on page load for this form.
-}
-protected void Button1_Click(object sender, EventArgs e)
-{
-// Insert record into the database
-using (SqlConnection con = new SqlConnection(&quot;Data Source=SQL;Initial
-Catalog=Muskan;User ID=user1;Password=user1&quot;))
-{
-SqlCommand cmd = new SqlCommand(&quot;INSERT INTO studinfo (Id, Name, Class)
-VALUES (@Id, @Name, @Class)&quot;, con);
-cmd.Parameters.AddWithValue(&quot;@Id&quot;, TextBox1.Text);
-cmd.Parameters.AddWithValue(&quot;@Name&quot;, TextBox2.Text);
-cmd.Parameters.AddWithValue(&quot;@Class&quot;, TextBox3.Text);
-con.Open();
-int rowsAffected = cmd.ExecuteNonQuery();
-con.Close();
-if (rowsAffected &gt; 0)
-{
-Response.Write(&quot;Data inserted successfully.&quot;);
-}
-else
-{
-Response.Write(&quot;Failed to insert data.&quot;);
-}
-}
-}
-protected void Button2_Click(object sender, EventArgs e)
-{
-// Delete record from the database
-using (SqlConnection con = new SqlConnection(&quot;Data Source=SQL;Initial
-Catalog=Muskan;User ID=user1;Password=user1&quot;))
-{
-SqlCommand cmd = new SqlCommand(&quot;DELETE FROM studinfo WHERE
-Id=@Id&quot;, con);
-cmd.Parameters.AddWithValue(&quot;@Id&quot;, TextBox1.Text);
-con.Open();
-int rowsAffected = cmd.ExecuteNonQuery();
-con.Close();
-if (rowsAffected &gt; 0)
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            // Insert record into the database
+            using (SqlConnection con = new SqlConnection("Data Source=SQL;Initial Catalog=Muskan;User ID=user1;Password=user1"))
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO studinfo (Id, Name, Class) VALUES (@Id, @Name, @Class)", con);
+                cmd.Parameters.AddWithValue("@Id", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@Name", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@Class", TextBox3.Text);
+                
+                con.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                con.Close();
 
-{
-Response.Write(&quot;Data deleted successfully.&quot;);
-}
-else
-{
-Response.Write(&quot;No record found with the specified ID.&quot;);
-}
-}
-}
-}
+                if (rowsAffected > 0)
+                {
+                    Response.Write("Data inserted successfully.");
+                }
+                else
+                {
+                    Response.Write("Failed to insert data.");
+                }
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            // Delete record from the database
+            using (SqlConnection con = new SqlConnection("Data Source=SQL;Initial Catalog=Muskan;User ID=user1;Password=user1"))
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM studinfo WHERE Id=@Id", con);
+                cmd.Parameters.AddWithValue("@Id", TextBox1.Text);
+
+                con.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (rowsAffected > 0)
+                {
+                    Response.Write("Data deleted successfully.");
+                }
+                else
+                {
+                    Response.Write("No record found with the specified ID.");
+                }
+            }
+        }
+    }
 }
