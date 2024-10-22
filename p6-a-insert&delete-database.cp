@@ -1,60 +1,44 @@
-&lt;%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;WebForm1.aspx.cs&quot;
-Inherits=&quot;WebApplication37.WebForm1&quot; %&gt;
-&lt;!DOCTYPE html&gt;
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication37.WebForm1" %>
 
-&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;head runat=&quot;server&quot;&gt;
-&lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
-&lt;div&gt;
-&lt;asp:DetailsView ID=&quot;DetailsView1&quot; runat=&quot;server&quot; Height=&quot;50px&quot; Width=&quot;125px&quot;
-AllowPaging=&quot;True&quot; AutoGenerateRows=&quot;False&quot; DataKeyNames=&quot;Id&quot;
-DataSourceID=&quot;SqlDataSource1&quot;&gt;
-&lt;Fields&gt;
-&lt;asp:BoundField DataField=&quot;Id&quot; HeaderText=&quot;Id&quot; ReadOnly=&quot;True&quot;
-SortExpression=&quot;Id&quot; /&gt;
-&lt;asp:BoundField DataField=&quot;ename&quot; HeaderText=&quot;ename&quot;
-SortExpression=&quot;ename&quot; /&gt;
-&lt;asp:BoundField DataField=&quot;project&quot; HeaderText=&quot;project&quot;
-SortExpression=&quot;project&quot; /&gt;
-&lt;asp:BoundField DataField=&quot;sal&quot; HeaderText=&quot;sal&quot; SortExpression=&quot;sal&quot; /&gt;
-&lt;asp:BoundField DataField=&quot;address&quot; HeaderText=&quot;address&quot;
-SortExpression=&quot;address&quot; /&gt;
-&lt;asp:CommandField ShowDeleteButton=&quot;True&quot; ShowEditButton=&quot;True&quot;
-ShowInsertButton=&quot;True&quot; /&gt;
-&lt;/Fields&gt;
-&lt;/asp:DetailsView&gt;
-&lt;asp:SqlDataSource ID=&quot;SqlDataSource1&quot; runat=&quot;server&quot; ConnectionString=&quot;Data
-Source=SQL;Initial Catalog=tyit2425;User ID=user1;Password=user1&quot;
-DeleteCommand=&quot;DELETE FROM [employee] WHERE [Id] = @Id&quot;
-InsertCommand=&quot;INSERT INTO [employee] ([Id], [ename], [project], [sal], [address])
-VALUES (@Id, @ename, @project, @sal, @address)&quot; ProviderName=&quot;&lt;%$
-ConnectionStrings:tyit2425ConnectionString2.ProviderName %&gt;&quot;
-SelectCommand=&quot;SELECT * FROM [employee]&quot; UpdateCommand=&quot;UPDATE [employee]
-SET [ename] = @ename, [project] = @project, [sal] = @sal, [address] = @address WHERE
-[Id] = @Id&quot;&gt;
-&lt;DeleteParameters&gt;
-&lt;asp:Parameter Name=&quot;Id&quot; Type=&quot;Int32&quot; /&gt;
-&lt;/DeleteParameters&gt;
-&lt;InsertParameters&gt;
-&lt;asp:Parameter Name=&quot;Id&quot; Type=&quot;Int32&quot; /&gt;
-&lt;asp:Parameter Name=&quot;ename&quot; Type=&quot;String&quot; /&gt;
-&lt;asp:Parameter Name=&quot;project&quot; Type=&quot;String&quot; /&gt;
-&lt;asp:Parameter Name=&quot;sal&quot; Type=&quot;String&quot; /&gt;
-&lt;asp:Parameter Name=&quot;address&quot; Type=&quot;String&quot; /&gt;
-&lt;/InsertParameters&gt;
-&lt;UpdateParameters&gt;
-&lt;asp:Parameter Name=&quot;ename&quot; Type=&quot;String&quot; /&gt;
-&lt;asp:Parameter Name=&quot;project&quot; Type=&quot;String&quot; /&gt;
-&lt;asp:Parameter Name=&quot;sal&quot; Type=&quot;String&quot; /&gt;
+<!DOCTYPE html>
 
-&lt;asp:Parameter Name=&quot;address&quot; Type=&quot;String&quot; /&gt;
-&lt;asp:Parameter Name=&quot;Id&quot; Type=&quot;Int32&quot; /&gt;
-&lt;/UpdateParameters&gt;
-&lt;/asp:SqlDataSource&gt;
-&lt;/div&gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
+                <Fields>
+                    <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
+                    <asp:BoundField DataField="ename" HeaderText="ename" SortExpression="ename" />
+                    <asp:BoundField DataField="project" HeaderText="project" SortExpression="project" />
+                    <asp:BoundField DataField="sal" HeaderText="sal" SortExpression="sal" />
+                    <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+                </Fields>
+            </asp:DetailsView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=SQL;Initial Catalog=tyit2425;User ID=user1;Password=user1" DeleteCommand="DELETE FROM [employee] WHERE [Id] = @Id" InsertCommand="INSERT INTO [employee] ([Id], [ename], [project], [sal], [address]) VALUES (@Id, @ename, @project, @sal, @address)" ProviderName="<%$ ConnectionStrings:tyit2425ConnectionString2.ProviderName %>" SelectCommand="SELECT * FROM [employee]" UpdateCommand="UPDATE [employee] SET [ename] = @ename, [project] = @project, [sal] = @sal, [address] = @address WHERE [Id] = @Id">
+                <DeleteParameters>
+                    <asp:Parameter Name="Id" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Id" Type="Int32" />
+                    <asp:Parameter Name="ename" Type="String" />
+                    <asp:Parameter Name="project" Type="String" />
+                    <asp:Parameter Name="sal" Type="String" />
+                    <asp:Parameter Name="address" Type="String" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="ename" Type="String" />
+                    <asp:Parameter Name="project" Type="String" />
+                    <asp:Parameter Name="sal" Type="String" />
+                    <asp:Parameter Name="address" Type="String" />
+                    <asp:Parameter Name="Id" Type="Int32" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+        </div>
+    </form>
+</body>
+</html>
