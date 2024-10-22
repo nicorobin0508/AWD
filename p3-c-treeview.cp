@@ -1,76 +1,62 @@
 Master page
-&lt;%@ Master Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Site1.master.cs&quot;
-Inherits=&quot;WebApplication49.Site1&quot; %&gt;
-&lt;!DOCTYPE html&gt;
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication49.Site1" %>
 
-&lt;html&gt;
-&lt;head runat=&quot;server&quot;&gt;
-&lt;title&gt;&lt;/title&gt;
-&lt;asp:ContentPlaceHolder ID=&quot;head&quot; runat=&quot;server&quot;&gt;
-&lt;/asp:ContentPlaceHolder&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
-&lt;div&gt;
-&lt;asp:Table ID=&quot;Table1&quot; runat=&quot;server&quot;&gt;
-&lt;asp:TableRow&gt;
-&lt;asp:TableCell&gt;
-&lt;asp:TreeView ID=&quot;TreeView1&quot; runat=&quot;server&quot;&gt;
-&lt;Nodes&gt;
-&lt;asp:TreeNode Text=&quot;awp&quot;
-NavigateUrl=&quot;~/WebForm2.aspx&quot;&gt;&lt;/asp:TreeNode&gt;
-&lt;asp:TreeNode Text=&quot;spm&quot;
-NavigateUrl=&quot;~/WebForm3.aspx&quot;&gt;&lt;/asp:TreeNode&gt;
-&lt;asp:TreeNode Text=&quot;et&quot;
-NavigateUrl=&quot;~/WebForm4.aspx&quot;&gt;&lt;/asp:TreeNode&gt;
-&lt;/Nodes&gt;
-&lt;/asp:TreeView&gt;
-&lt;/asp:TableCell&gt;
-&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;asp:ContentPlaceHolder ID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
-&lt;/asp:ContentPlaceHolder&gt;
-&lt;/div&gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<!DOCTYPE html>
 
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Table ID="Table1" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:TreeView ID="TreeView1" runat="server">
+                            <Nodes>
+                                <asp:TreeNode Text="awp" NavigateUrl="~/WebForm2.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="spm" NavigateUrl="~/WebForm3.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="et" NavigateUrl="~/WebForm4.aspx"></asp:TreeNode>
+                            </Nodes>
+                        </asp:TreeView>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
 
 
 Content page
-&lt;%@ Page Title=&quot;&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site1.Master&quot;
-AutoEventWireup=&quot;true&quot; CodeBehind=&quot;WebForm2.aspx.cs&quot;
-Inherits=&quot;WebApplication49.WebForm2&quot; %&gt;
-&lt;asp:Content ID=&quot;Content1&quot; ContentPlaceHolderID=&quot;head&quot; runat=&quot;server&quot;&gt;
-AWP
-&lt;/asp:Content&gt;
-&lt;asp:Content ID=&quot;Content2&quot; ContentPlaceHolderID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
-C#,.NET FRAMEWORK
-&lt;/asp:Content&gt;
-
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="WebApplication49.WebForm2" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    AWP
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    C#,.NET FRAMEWORK
+</asp:Content>
 
 
 Content page
-
-&lt;%@ Page Title=&quot;&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site1.Master&quot;
-AutoEventWireup=&quot;true&quot; CodeBehind=&quot;WebForm3.aspx.cs&quot;
-Inherits=&quot;WebApplication49.WebForm3&quot; %&gt;
-&lt;asp:Content ID=&quot;Content1&quot; ContentPlaceHolderID=&quot;head&quot; runat=&quot;server&quot;&gt;
-SPD
-&lt;/asp:Content&gt;
-&lt;asp:Content ID=&quot;Content2&quot; ContentPlaceHolderID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
-PROJECT MANAGMENT
-&lt;/asp:Content&gt;
-
-
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="WebApplication49.WebForm3" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    SPD
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    PROJECT MANAGMENT
+</asp:Content>
 
 Content page
-&lt;%@ Page Title=&quot;&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site1.Master&quot;
-AutoEventWireup=&quot;true&quot; CodeBehind=&quot;WebForm4.aspx.cs&quot;
-Inherits=&quot;WebApplication49.WebForm4&quot; %&gt;
-&lt;asp:Content ID=&quot;Content1&quot; ContentPlaceHolderID=&quot;head&quot; runat=&quot;server&quot;&gt;
-ET
-&lt;/asp:Content&gt;
-&lt;asp:Content ID=&quot;Content2&quot; ContentPlaceHolderID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
-NEW GENERATION TECHNOLOGY
-&lt;/asp:Content&gt;
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm4.aspx.cs" Inherits="WebApplication49.WebForm4" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    ET
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    NEW GENERATION TECHNOLOGY
+</asp:Content>
