@@ -1,3 +1,8 @@
+sample prompt:
+tell me step by step on how to "create a web form to demonstrate wesite navigating control", in visual studio 2022. tell me everything from step by step from start
+here's the code:
+_____________________________________________________________________________________________________________________________________________
+
 using System;
 public class practical1A
 {
