@@ -20,3 +20,32 @@ int n1,n2,n3;
      }
     }
 }
+
+
+ii. Test for prime numbers. 
+using System;
+
+class PrimeChecker
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Please enter a number:");
+        int number = Convert.ToInt32(Console.ReadLine());
+        bool isPrime = true;
+
+        for (int divisor = 2; divisor <= number / 2; divisor++)
+        {
+            if (number % divisor == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime && number > 1)
+            Console.WriteLine("The number is prime.");
+        else
+            Console.WriteLine("The number is not prime.");
+    }
+}
+
